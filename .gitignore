@@ -1,0 +1,27 @@
+# Environment variables — NEVER commit this
+.env
+
+# Uploaded user databases — too large for git
+data/uploads/
+
+# Virtual environment
+venv/
+SQLLLM/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Streamlit cache
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+test_key.py
