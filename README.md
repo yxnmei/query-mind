@@ -12,6 +12,12 @@ QueryMind is an AI-powered Text-to-SQL application that lets anyone query a rela
 
 ---
 
+## 🌐 Live Demo
+
+**👉 [https://query-mind.streamlit.app/](https://query-mind.streamlit.app/)**
+
+---
+
 ## ✨ Features
 
 - 💬 **Natural language querying** — type a question, get a SQL result instantly
@@ -155,7 +161,7 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 ```toml
 GEMINI_API_KEY = "your_api_key_here"
 ```
-5. Click **Deploy** — your app will be live at a public URL in ~2 minutes!
+5. Click **Deploy** — your app will be live in ~2 minutes!
 
 ---
 
@@ -169,13 +175,3 @@ GEMINI_API_KEY = "your_api_key_here"
 - [ ] Dark/light mode toggle
 
 ---
-
-## 👤 Author
-
-Built by **[Your Name]** — [GitHub](https://github.com/YOUR_USERNAME) · [LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
-
----
-
-## 📄 License
-
-MIT License — feel free to use, modify, and build on this project.
