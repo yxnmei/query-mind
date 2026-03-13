@@ -20,7 +20,7 @@ Rules:
 - Only use SELECT statements. Never use INSERT, UPDATE, DELETE, DROP, ALTER, or CREATE.
 - Always alias calculated columns with meaningful names (e.g., SUM(revenue) AS total_revenue).
 - Use table names and column names exactly as provided in the schema.
-- When filtering dates, use SQLite date functions (e.g., strftime('%Y-%m', order_date) = '2024-03').
+- When filtering by year on a column stored as 'YYYY-MM' text (e.g. '2023-01'), use LIKE '2023%' instead of strftime(). Only use strftime() on full date columns stored as 'YYYY-MM-DD'.
 - If a question is ambiguous, make a reasonable assumption and answer it.
 - Revenue for an order item = quantity * unit_price.
 """
@@ -60,15 +60,17 @@ def clear_history():
     _chat_history.clear()
 
 def generate_example_questions(schema: str) -> list[str]:
-    """Ask Gemini to suggest 5 interesting questions for the given schema."""
-    prompt = f"""You are a data analyst. Given this database schema, suggest exactly 5 interesting and varied 
-questions a business user might ask. Make them specific to the actual table and column names.
+    prompt = f"""You are a data analyst. Given this database schema, suggest exactly 5 interesting questions a business user might ask.
 
 Rules:
-- Return ONLY a numbered list (1. 2. 3. 4. 5.)
-- No explanations, no extra text
-- Questions should range from simple lookups to interesting aggregations
-- Use actual column and table names from the schema
+- Write in plain, natural conversational English — like a person talking, not a programmer
+- NEVER use column names, table names, backticks, quotes around values, or technical SQL terms
+- NEVER include specific raw values like '2023-01' or '4 ROOM' — use natural phrasing like "4-room flats" or "in 2023"
+- Questions should range from simple to interesting aggregations
+- Return ONLY a numbered list (1. 2. 3. 4. 5.) with no extra text
+
+Good example: "Which neighbourhood had the highest average resale price in 2023?"
+Bad example: "What is the average `resale_price` for '4 ROOM' `flat_type` in '2023'?"
 
 SCHEMA:
 {schema}
@@ -85,7 +87,6 @@ SCHEMA:
     for line in lines:
         line = line.strip()
         if line and line[0].isdigit():
-            # Strip the number prefix (e.g. "1. " or "1) ")
             question = line.split(".", 1)[-1].strip().split(")", 1)[-1].strip()
             if question:
                 questions.append(question)
