@@ -10,13 +10,10 @@ QueryMind is an AI-powered Text-to-SQL application that lets anyone query a rela
 ![SQLite](https://img.shields.io/badge/SQLite-3-lightblue?style=flat-square&logo=sqlite)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
----
-
 ## 🌐 Live Demo
 
 **👉 [https://query-mind.streamlit.app/](https://query-mind.streamlit.app/)**
 
----
 
 ## ✨ Features
 
@@ -30,7 +27,6 @@ QueryMind is an AI-powered Text-to-SQL application that lets anyone query a rela
 - 🛡️ **SQL safety layer** — blocks any destructive queries (DROP, DELETE, ALTER, etc.)
 - 🧵 **Conversation memory** — supports natural follow-up questions within a session
 
----
 
 ## 🖥️ Demo
 
@@ -42,7 +38,6 @@ Example questions you can ask:
 - *"Which towns have average prices above $600,000 for 4-room flats in the last 3 years?"*
 - *"What is the month-over-month change in average resale price for 5-room flats?"*
 
----
 
 ## 🧰 Tech Stack
 
@@ -55,7 +50,6 @@ Example questions you can ask:
 | Visualisation | Plotly Express |
 | Environment | Python 3.9+, python-dotenv |
 
----
 
 ## 🗂️ Project Structure
 
@@ -77,7 +71,7 @@ QueryMind/
 └── README.md
 ```
 
----
+
 
 ## 🚀 Getting Started
 
@@ -133,7 +127,6 @@ streamlit run src/app.py
 
 Open [http://localhost:8501](http://localhost:8501) in your browser.
 
----
 
 ## 📁 Using Your Own Data
 
@@ -150,7 +143,7 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 - API keys are loaded from `.env` and never exposed in the UI
 - `.env` and `data/uploads/` are excluded from version control via `.gitignore`
 
----
+
 
 ## ☁️ Deployment (Streamlit Community Cloud)
 
@@ -163,7 +156,6 @@ GEMINI_API_KEY = "your_api_key_here"
 ```
 5. Click **Deploy** — your app will be live in ~2 minutes!
 
----
 
 ## 🔮 Future Improvements
 
