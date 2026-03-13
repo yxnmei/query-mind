@@ -2,7 +2,7 @@
 
 > **Ask anything. Get answers.**
 
-QueryMind is an AI-powered Text-to-SQL application that lets anyone query a relational database using plain English. Powered by **Gemini 2.5 Flash** and built with **Streamlit**, it transforms natural-language questions into SQL queries, executes them instantly, and visualises the results — no SQL knowledge required.
+QueryMind is an AI-powered Text-to-SQL application that lets anyone query a relational database using plain English. Powered by **Gemini 2.5 Flash** and built with **Streamlit**, it transforms natural-language questions into SQL queries, executes them instantly, and visualises the results. **NO** SQL knowledge required!
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-red?style=flat-square&logo=streamlit)
@@ -13,6 +13,35 @@ QueryMind is an AI-powered Text-to-SQL application that lets anyone query a rela
 ## 🌐 Live Demo
 
 **👉 [https://query-mind.streamlit.app/](https://query-mind.streamlit.app/)**
+
+## 🖥️ Demo
+
+**Dataset used:** Singapore HDB Resale Prices (data.gov.sg)
+
+Example questions you can ask:
+- *"Which town has the highest average resale price?"*
+- *"Show me the average resale price by year from 2015 to 2024"*
+- *"Which towns have average prices above $600,000 for 4-room flats in the last 3 years?"*
+- *"What is the month-over-month change in average resale price for 5-room flats?"*
+
+**Home page**
+![Chat](assets/querymind_home.png)
+
+**Using custom dataset & get 5 AI-suggested questions:**
+![Chart](assets/query_mind_use-own-database.png)
+
+
+**Example question 1:**
+> *How have the prices for resales evolved over the last few years?*
+
+![Sidebar](assets/qn1.png)
+![Sidebar](assets/qn1_line_plot.png)
+
+**Example question 2:**
+> *Which types of flats generally command the highest prices?*
+
+![Sidebar](assets/qn2.png)
+![Sidebar](assets/qn2_plot.png)
 
 
 ## ✨ Features
@@ -28,15 +57,7 @@ QueryMind is an AI-powered Text-to-SQL application that lets anyone query a rela
 - 🧵 **Conversation memory** — supports natural follow-up questions within a session
 
 
-## 🖥️ Demo
 
-**Dataset used:** Singapore HDB Resale Prices (data.gov.sg)
-
-Example questions you can ask:
-- *"Which town has the highest average resale price?"*
-- *"Show me the average resale price by year from 2015 to 2024"*
-- *"Which towns have average prices above $600,000 for 4-room flats in the last 3 years?"*
-- *"What is the month-over-month change in average resale price for 5-room flats?"*
 
 
 ## 🧰 Tech Stack
@@ -159,11 +180,10 @@ GEMINI_API_KEY = "your_api_key_here"
 
 ## 🔮 Future Improvements
 
-- [ ] Export query results as CSV
-- [ ] Natural language chart customisation ("make it a pie chart")
-- [ ] Query history log with copy-to-clipboard
-- [ ] Support for PostgreSQL and MySQL connections
-- [ ] User authentication for multi-user deployments
-- [ ] Dark/light mode toggle
+- Export query results as CSV
+- Natural language chart customisation ("make it a pie chart")
+- Query history log with copy-to-clipboard
+- Support for PostgreSQL and MySQL connections
+- User authentication for multi-user deployments
+- Dark/light mode toggle
 
----
