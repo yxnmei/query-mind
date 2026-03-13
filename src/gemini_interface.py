@@ -60,22 +60,30 @@ def clear_history():
     _chat_history.clear()
 
 def generate_example_questions(schema: str) -> list[str]:
-    prompt = f"""You are a data analyst. Given this database schema, suggest exactly 5 interesting questions a business user might ask.
+    prompt = f"""You are a friendly data analyst helping a non-technical business user explore a dataset.
+Generate exactly 5 questions they might naturally ask in casual conversation.
 
-Rules:
-- Write in plain, natural conversational English — like a person talking, not a programmer
-- NEVER use column names, table names, backticks, quotes around values, or technical SQL terms
-- NEVER include specific raw values like '2023-01' or '4 ROOM' — use natural phrasing like "4-room flats" or "in 2023"
-- Questions should range from simple to interesting aggregations
-- Return ONLY a numbered list (1. 2. 3. 4. 5.) with no extra text
+STRICT RULES:
+- Write like a human talking to another human, not like a programmer
+- NEVER use column names, backticks, quotes around values, or raw data values
+- NEVER mention specific codes like '2023-01', '4 ROOM', '416A', 'FERNVALE LINK'
+- Instead say: "in 2023", "4-room flats", "high-floor units", "last year"
 
-Good example: "Which neighbourhood had the highest average resale price in 2023?"
-Bad example: "What is the average `resale_price` for '4 ROOM' `flat_type` in '2023'?"
+GOOD questions (write like these):
+- Which neighbourhood had the highest average resale price last year?
+- How have resale prices changed over the years?
+- Which flat type tends to sell for the most?
+- Which areas are the most affordable for larger flats?
+- How do prices differ between high and low floor units?
+
+BAD questions (never write like these):
+- What is the average resale_price for flat_type '4 ROOM' in month '2023-01'?
+- Which town has the highest resale_price for flat_model 'Improved'?
 
 SCHEMA:
 {schema}
 
-5 QUESTIONS:"""
+Write 5 natural, human-sounding questions as a numbered list:"""
 
     response = client.models.generate_content(
         model="gemini-2.5-flash",
